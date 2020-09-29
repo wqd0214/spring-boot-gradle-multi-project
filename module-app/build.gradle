@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'java'
+}
+
+group = 'site.paranoia.app'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 14
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'mysql:mysql-connector-java'
+    compile 'com.alibaba:druid-spring-boot-starter:1.1.17'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1'
+    compile 'tk.mybatis:mapper-spring-boot-starter:2.1.5'
+    compile 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.12'
+
+    compile project(':module-customer')
+}
+
+test {
+    useJUnitPlatform()
+}
+

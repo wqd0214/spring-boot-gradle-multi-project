@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '2.3.3.RELEASE'
+    }
+    repositories {
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+group 'site.paranoia'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java-library'
+    version = '1.0'
+    sourceCompatibility = 14
+    targetCompatibility = 14
+    repositories {
+        mavenLocal()
+//		mavenCentral()
+        maven { url = uri('http://192.168.102.136:8081/repository/maven-public/') }
+        maven {
+            url = uri('http://maven.aliyun.com/nexus/content/groups/public/')
+        }
+    }
+}
+
+subprojects {
+    version = '1.0'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    //配置所有子模块的依赖仓库地址
+    repositories {
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies{
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
