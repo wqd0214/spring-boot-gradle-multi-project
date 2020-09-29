@@ -33,17 +33,22 @@ subprojects {
     version = '1.0'
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
-    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
-    //配置所有子模块的依赖仓库地址
     repositories {
         maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
     dependencies{
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+//		implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
 }

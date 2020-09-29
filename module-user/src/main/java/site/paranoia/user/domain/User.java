@@ -1,18 +1,25 @@
 package site.paranoia.user.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "age")
     private Integer age;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "delete_flag")
+    private Integer deleteFlag;
 
     public Integer getId() {
         return id;
@@ -44,5 +51,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 }

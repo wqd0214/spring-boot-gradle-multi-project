@@ -15,6 +15,6 @@ public class AppController {
 
     @GetMapping
     public String getTest() {
-        return customerService.testCustomer();
+        return "APP";
     }
 }

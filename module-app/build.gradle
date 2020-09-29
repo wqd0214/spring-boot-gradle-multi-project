@@ -22,7 +22,7 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'org.springframework.boot:spring-boot-starter-tomcat'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
     runtimeOnly 'mysql:mysql-connector-java'
     compile 'com.alibaba:druid-spring-boot-starter:1.1.17'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -34,9 +34,5 @@ dependencies {
     compile 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.12'
 
     compile project(':module-customer')
+    compile project(':module-user')
 }
-
-test {
-    useJUnitPlatform()
-}
-

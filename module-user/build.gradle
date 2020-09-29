@@ -1,9 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
     id 'java'
 }
-
-apply plugin: 'io.spring.dependency-management'
 
 group = 'site.paranoia.user'
 version = '0.0.1-SNAPSHOT'
@@ -22,7 +21,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
     runtimeOnly 'mysql:mysql-connector-java'
     compile 'com.alibaba:druid-spring-boot-starter:1.1.17'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'

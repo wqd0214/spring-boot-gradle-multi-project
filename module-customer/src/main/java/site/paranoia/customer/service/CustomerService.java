@@ -1,12 +1,21 @@
 package site.paranoia.customer.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import site.paranoia.customer.domain.Customer;
+import site.paranoia.customer.mapper.CustomerMapper;
 
-@Component
+@Service
 public class CustomerService {
 
-    public String testCustomer() {
-        return "testCustomer";
+    @Autowired
+    CustomerMapper customerMapper;
+
+    public void addUser() {
+        Customer user = new Customer();
+        user.setName("21121212");
+        user.setAge(12);
+        user.setEmail("122222");
+        customerMapper.insertSelective(user);
     }
 }

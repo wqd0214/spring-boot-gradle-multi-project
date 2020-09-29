@@ -5,8 +5,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "user")
-public class User {
+@Table(name = "app")
+public class App {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

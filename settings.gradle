@@ -1,3 +1,4 @@
 rootProject.name = 'spring-boot-gradle-multi-project'
 include 'module-app'
 include 'module-customer'
+include 'module-user'
