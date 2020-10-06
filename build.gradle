@@ -10,23 +10,39 @@ buildscript {
     }
 }
 
-group 'site.paranoia'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'war'
+    id "org.liquibase.gradle" version "2.0.2"
+    id 'net.ltgt.apt' version '0.15'
+}
 
 allprojects {
+    group 'site.paranoia'
+    version '1.0-SNAPSHOT'
+    
     apply plugin: 'idea'
+    apply plugin: 'java'
     apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'application'
+    apply plugin: 'net.ltgt.apt-idea'
+    apply plugin: 'net.ltgt.apt-eclipse'
     version = '1.0'
     sourceCompatibility = 14
     targetCompatibility = 14
     repositories {
         mavenLocal()
 //		mavenCentral()
-        maven { url = uri('http://192.168.102.136:8081/repository/maven-public/') }
-        maven {
-            url = uri('http://maven.aliyun.com/nexus/content/groups/public/')
-        }
+        maven { url = uri('http://maven.aliyun.com/nexus/content/groups/public/') }
     }
+    mainClassName = 'site.paranoia.app.Application'
+}
+
+jar {
+    enabled = true
 }
 
 subprojects {

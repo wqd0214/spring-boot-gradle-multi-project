@@ -10,7 +10,7 @@ public class AppService {
     AppMapper appMapper;
 
     public void addUser() {
-        App app = new App();
+        var app = new App();
         app.setName("21121212");
     }
 }
