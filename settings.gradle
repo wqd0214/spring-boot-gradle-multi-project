@@ -1,4 +1,8 @@
-rootProject.name = 'spring-boot-gradle-multi-project'
-include 'module-app'
-include 'module-customer'
-include 'module-user'
+rootProject.name = 'spring-cloud-alibaba-demo'
+include 'nacos-config-demo'
+//include 'nacos-provider-demo'
+//include 'nacos-consumer-demo'
+include 'dubbo-api'
+include 'nacos-dubbo-provider-demo'
+include 'nacos-dubbo-consumer-demo'
+
